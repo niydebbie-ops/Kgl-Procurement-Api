@@ -11,6 +11,10 @@ const DATA_FILE = path.join(__dirname, 'data.json');
 // Middleware to parse JSON
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send('✅ KGL Procurement API is running. Use /kgl/procurement to GET or POST records.');
+});
+
 // GET Route: Fetch procurement records
 app.get('/kgl/procurement', (req, res) => {
   fs.readFile(DATA_FILE, 'utf8', (err, data) => {
